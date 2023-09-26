@@ -2,14 +2,13 @@ import requests
 from datetime import date
 from datetime import timedelta
 import smtplib
-import html
 
 STOCK = STOCK_CODE_HERE
 COMPANY_NAME = COPANY_NAME
 
 
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+# STEP 1: Use https://www.alphavantage.co
+
 
 API_KEY_STOCK = f"{YOUR_API_KEY_HERE}"
 STOCK_PARAMS = {
@@ -25,8 +24,8 @@ company_data = company_response.json()
 company_daily = company_data["Time Series (Daily)"]
 
 today = date.today()
-yesterday = today - timedelta(days = 1)
-before_yesterday = today - timedelta(days = 2)
+yesterday = today - timedelta(days=1)
+before_yesterday = today - timedelta(days=2)
 
 
 yester_open = float(company_daily[f"{yesterday}"]["1. open"])
@@ -36,8 +35,8 @@ print(stock_change)
 
 
 
-## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
+# STEP 2: Use https://newsapi.org
+
 
 NEWS_API = f"{YOUR_API_KEY_HERE}"
 NEWS_PARAMS = {
